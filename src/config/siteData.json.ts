@@ -17,9 +17,9 @@ export interface SiteDataProps {
 const siteData: SiteDataProps = {
 	name: "Aqualand Divers",
 	// Your website's title and description (meta fields)
-	title: "Aqualand Divers - a dive centre at the heart of diving.",
+	title: "Aqualand Divers - A dive centre at the heart of diving.",
 	description:
-		"Get your next website up and running quickly with our beautiful website theme designed using Astro and Tailwind CSS. Perfect for freelancers, developers, startups, and personal use.",
+		"At Aqualand Divers we provide a range of PADI Courses as well as Servicing for all dive equipment, as a five star PADI dive centre ",
 	useViewTransitions: true,
 	// Your information!
 	author: {
