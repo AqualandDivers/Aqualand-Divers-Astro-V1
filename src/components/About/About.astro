@@ -1,0 +1,39 @@
+---
+/**
+ * * About section
+ */
+
+import profileImage from "@assets/images/WhoWeAreReplace.jpg";
+import { Image } from "astro:assets";
+---
+
+<section id="about" class="site-container scroll-mt-10 py-8 md:py-12">
+	<div class="flex flex-col md:flex-row">
+		<div class="md:w-2/3">
+			<h2 class="h2 text-pretty uppercase">Who we are </h2>
+			<div class="bg-base-100 mt-8 p-8 md:mb-20 lg:text-lg">
+				<p>
+					Aqualand Divers was founded in 1998(?), since then we have provided courses as a team of qualified technicians and experience divers. <br>
+					Bob and Diane have been part of Aqualand Divers since the beginning(?).  <br>
+					Bob has worked for Aqualand the beginning, and took ownership in 2001, since then he has organised Aqualand Divers, and has been a pillar of the community. <br>
+					Diane first qualified with Aqualand in 1998 before going on to become an instructor in 2003, and now teaches a wide variety of courses.
+				</p>
+				<div class="flex w-3/4 justify-end">
+					<p class="font-heading-2 mt-8 italic font-semibold">At Aqualand Divers, diving is our passion, if there is anything you need, we can accomodate.</p>
+				</div>
+			</div>
+		</div>
+		<div class="mr-auto max-w-md md:w-1/3 md:max-w-none">
+			<div class="my-auto aspect-[3/4] w-full overflow-hidden">
+				<Image
+					src={profileImage}
+					alt="Jenna Marie"
+					width={450}
+					densities={[1.5, 2]}
+					class="h-auto min-h-full w-full min-w-full object-cover"
+					loading="eager"
+				/>
+			</div>
+		</div>
+	</div>
+</section>

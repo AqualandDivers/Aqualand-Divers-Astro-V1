@@ -1,0 +1,17 @@
+---
+import siteData from "@config/siteData.json";
+import logo from "@images/LogoV11.png";
+import { Image } from "astro:assets";
+---
+
+<a class="primary-focus flex items-center align-middle" href="/" aria-label="Home" class="">
+	<Image
+    src={logo}
+    alt="Aqualand Divers logo"
+    loading="eager"
+    width={495}
+    height={128}
+    class="h-14 w-28"
+  />
+	<!--  <div class="font-heading-1 text-xl uppercase">{siteData.name}</div> -->
+</a>
