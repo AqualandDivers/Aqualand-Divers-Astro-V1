@@ -16,6 +16,9 @@ content:
     - name: cover
       label: Hero image
       type: image
+    - name: body
+      label: Body
+      type: rich-text
 
   - name: professional_courses
     label: Professional Courses
@@ -33,6 +36,9 @@ content:
     - name: cover
       label: Hero image
       type: image
+    - name: body
+      label: Body
+      type: rich-text
 
   - name: services
     label: Services
@@ -50,3 +56,6 @@ content:
     - name: cover
       label: Hero image
       type: image
+    - name: body
+      label: Body
+      type: rich-text
