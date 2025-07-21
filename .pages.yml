@@ -1,1 +1,52 @@
 media: src/assets
+content:
+  - name: courses
+    label: Courses
+    type: collection
+    path: 'src/cms_data/courses'
+    view:
+      fields: [ title, published, cover ]
+    fields:
+    - name: title
+      label: Title
+      type: string
+    - name: published
+      label: Published
+      type: boolean
+    - name: cover
+      label: Hero image
+      type: image
+
+  - name: professional_courses
+    label: Professional Courses
+    type: collection
+    path: 'src/cms_data/professional_courses'
+    view:
+      fields: [ title, published, cover ]
+    fields:
+    - name: title
+      label: Title
+      type: string
+    - name: published
+      label: Published
+      type: boolean
+    - name: cover
+      label: Hero image
+      type: image
+
+  - name: services
+    label: Services
+    type: collection
+    path: 'src/cms_data/services'
+    view:
+      fields: [ title, published, cover ]
+    fields:
+    - name: title
+      label: Title
+      type: string
+    - name: published
+      label: Published
+      type: boolean
+    - name: cover
+      label: Hero image
+      type: image
