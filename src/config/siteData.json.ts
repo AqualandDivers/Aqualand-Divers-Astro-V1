@@ -24,7 +24,7 @@ const siteData: SiteDataProps = {
 	// Your information!
 	author: {
 		name: "Sam Adcock",
-		github: "TyraelWasTaken"
+		github: "@TyraelWasTaken"
 	},
 
 	// default image for meta tags if the page doesn't have an image already
