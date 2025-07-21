@@ -3,7 +3,7 @@ content:
   - name: courses
     label: Courses
     type: collection
-    path: 'src/cms_data/courses'
+    path: 'src/pages/cms_data/courses'
     view:
       fields: [ title, published, cover ]
     fields:
@@ -23,7 +23,7 @@ content:
   - name: professional_courses
     label: Professional Courses
     type: collection
-    path: 'src/cms_data/professional_courses'
+    path: 'src/pages/cms_data/professional_courses'
     view:
       fields: [ title, published, cover ]
     fields:
@@ -43,7 +43,7 @@ content:
   - name: services
     label: Services
     type: collection
-    path: 'src/cms_data/services'
+    path: 'src/pages/cms_data/services'
     view:
       fields: [ title, published, cover ]
     fields:
