@@ -3,59 +3,87 @@ content:
   - name: courses
     label: Courses
     type: collection
-    path: 'src/pages/cms_data/courses'
+    path: 'src/data/courses&services/Courses'
     view:
-      fields: [ title, published, cover ]
+      fields: [ title, description, order ]
     fields:
     - name: title
       label: Title
       type: string
-    - name: published
-      label: Published
-      type: boolean
-    - name: cover
-      label: Hero image
-      type: image
-    - name: body
-      label: Body
+    - name: description
+      label: Card Description
       type: rich-text
+    - name: heroImage
+      label: Hero Image (Big image at the back)
+      type: image
+    - name: sub
+      label: Main Page Sub Heading
+      type: rich-text
+    - name: header
+      label: Header Image (for cards)
+      type: image
+    - name: images
+      label: Other Images
+      type: image
+      list: true
+    - name: order
+      label: Order of Posts (Services, Courses, professional Courses)
 
   - name: professional_courses
     label: Professional Courses
     type: collection
-    path: 'src/pages/cms_data/professional_courses'
+    path: 'src/data/courses&services/Professional Courses'
     view:
-      fields: [ title, published, cover ]
+      fields: [ title, description, order ]
     fields:
     - name: title
       label: Title
       type: string
-    - name: published
-      label: Published
-      type: boolean
-    - name: cover
-      label: Hero image
-      type: image
-    - name: body
-      label: Body
+    - name: description
+      label: Card Description
       type: rich-text
+    - name: heroImage
+      label: Hero Image (Big image at the back)
+      type: image
+    - name: sub
+      label: Main Page Sub Heading
+      type: rich-text
+    - name: header
+      label: Header Image (for cards)
+      type: image
+    - name: images
+      label: Other Images
+      type: image
+      list: true
+    - name: order
+      label: Order of Posts (Services, Courses, professional Courses)
+
 
   - name: services
     label: Services
     type: collection
-    path: 'src/pages/cms_data/services'
+    path: 'src/data/courses&services/Services'
     view:
-      fields: [ title, published, cover ]
+      fields: [ title, description, order ]
     fields:
     - name: title
       label: Title
       type: string
-    - name: published
-      label: Published
-      type: boolean
-    - name: cover
-      label: Hero image
-      type: image
-    - name: body
-      label: Body
+    - name: description
+      label: Card Description
       type: rich-text
+    - name: heroImage
+      label: Hero Image (Big image at the back)
+      type: image
+    - name: sub
+      label: Main Page Sub Heading
+      type: rich-text
+    - name: header
+      label: Header Image (for cards)
+      type: image
+    - name: images
+      label: Other Images
+      type: image
+      list: true
+    - name: order
+      label: Order of Posts (Services, Courses, professional Courses)
