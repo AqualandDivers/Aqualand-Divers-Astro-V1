@@ -14,8 +14,8 @@ const portfolios = defineCollection({
 			title: z.string(),
 			description: z.string(),
 			heroImage: image(),
-			clients: image(),
-			location: z.string(),
+			header: image(),
+			sub: z.string(),
 			images: z.array(
 				z.array(image()).refine((arr) => [1, 2, 3].includes(arr.length), {
 					message: "Each sub-array must contain 1, 2, or 3 items",

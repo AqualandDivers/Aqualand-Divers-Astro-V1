@@ -13,7 +13,7 @@ interface Props {
 }
 
 const { portfolio, direction, noTransitions = false } = Astro.props as Props;
-const { title, description, clients } = portfolio.data;
+const { title, description, header } = portfolio.data;
 ---
 
 <div
@@ -28,7 +28,7 @@ const { title, description, clients } = portfolio.data;
 		{
 			noTransitions && (
 				<Image
-					src={clients}
+					src={header}
 					alt={title}
 					width={450}
 					densities={[1.5, 2, 3]}
@@ -39,7 +39,7 @@ const { title, description, clients } = portfolio.data;
 		{
 			!noTransitions && (
 				<Image
-					src={clients}
+					src={header}
 					alt={title}
 					width={450}
 					densities={[1.5, 2, 3]}

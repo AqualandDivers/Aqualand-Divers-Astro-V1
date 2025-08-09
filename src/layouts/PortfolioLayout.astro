@@ -14,7 +14,7 @@ interface Props {
 import headerImage from "@images/portfolio-header-crop-min.jpg";
 
 const { portfolio } = Astro.props as Props;
-const { title, description, images, heroImage, location, clients } = portfolio.data; //date, clients removed
+const { title, description, images, heroImage, sub, header } = portfolio.data; //date, clients removed
 
 // find other portfolios to show later down the page
 const otherPortfolios = await getCollection("portfolios", (otherPortfolio) => {
@@ -65,7 +65,7 @@ const otherPortfolios = await getCollection("portfolios", (otherPortfolio) => {
 			<p
 				class="mt-8 text-lg tracking-widest text-pretty drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)] md:max-w-[550px] md:text-2xl"
 			>
-				{location}
+				{sub}
 			</p>
 			</div>
 		</div>
