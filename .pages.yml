@@ -31,9 +31,10 @@ content:
       label: Other Images
       type: image
       list: true
-      multiple:
-        min: 3
-        max: 3
+      options:
+        multiple:
+          min: 3
+          max: 3
     - name: order
       label: Order of Posts (Services, Courses, professional Courses)
       type: number
