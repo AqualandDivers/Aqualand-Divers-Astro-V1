@@ -27,17 +27,17 @@ content:
       label: Header Image (for cards)
       type: image
       required: true
-    - name: images
-      label: Other Images
-      type: object
-      list: true
-      fields:
-        - name: internal
-          label: Image Group
-          type: image
-          list: 
-            min: 3
-            max: 3
+    # - name: images
+    #   label: Other Images
+    #   type: object
+    #   list: true
+    #   fields:
+    #     - name: internal
+    #       label: Image Group
+    #       type: image
+    #       list: 
+    #         min: 3
+    #         max: 3
     - name: order
       label: Order of Posts (Services, Courses, professional Courses)
       type: number
@@ -74,10 +74,10 @@ content:
       label: Header Image (for cards)
       type: image
       required: true
-    - name: images
-      label: Other Images
-      type: image
-      list: true
+    # - name: images
+    #   label: Other Images
+    #   type: image
+    #   list: true
       required: true
     - name: order
       label: Order of Posts (Services, Courses, professional Courses)
@@ -115,11 +115,11 @@ content:
       label: Header Image (for cards)
       type: image
       required: true
-    - name: images
-      label: Other Images
-      type: image
-      list: true
-      required: true
+    # - name: images
+    #   label: Other Images
+    #   type: image
+    #   list: true
+    #   required: true
     - name: order
       label: Order of Posts (Services, Courses, professional Courses)
       type: number
