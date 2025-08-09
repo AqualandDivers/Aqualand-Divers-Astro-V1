@@ -32,6 +32,8 @@ content:
       type: image
       list: true
       required: true
+      options: 
+        multiple: true
     - name: order
       label: Order of Posts (Services, Courses, professional Courses)
       type: number
