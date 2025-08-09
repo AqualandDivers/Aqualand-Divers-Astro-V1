@@ -29,7 +29,11 @@ content:
     - name: order
       label: Order of Posts (Services, Courses, professional Courses)
       type: number
+    - name: body
+      label: Page Content (The actual writing in the page)
+      type: text
 
+  
   - name: professional_courses
     label: Professional Courses
     type: collection
