@@ -33,7 +33,9 @@ content:
       required: true
       list: true
       options: 
-        multiple: true
+        multiple:
+          max: 3
+          min: 3
     - name: order
       label: Order of Posts (Services, Courses, professional Courses)
       type: number
