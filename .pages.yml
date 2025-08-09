@@ -33,6 +33,7 @@ content:
       list: true
       fields:
         - name: internal
+          label: Image Group
           type: image
           list: 
             min: 3
