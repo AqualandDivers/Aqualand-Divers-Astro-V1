@@ -30,7 +30,8 @@ content:
     - name: images
       label: Other Images
       type: image
-      required: true
+      list:
+        min: 3
     - name: order
       label: Order of Posts (Services, Courses, professional Courses)
       type: number
