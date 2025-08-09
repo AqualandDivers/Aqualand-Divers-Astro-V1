@@ -31,11 +31,6 @@ content:
       label: Other Images
       type: image
       required: true
-      list: 
-        min: 3
-        max: 3
-      options: 
-        multiple: true
     - name: order
       label: Order of Posts (Services, Courses, professional Courses)
       type: number
