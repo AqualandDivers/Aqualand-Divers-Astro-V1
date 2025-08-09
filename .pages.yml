@@ -30,7 +30,6 @@ content:
     - name: images
       label: Other Images
       type: image
-      list: true
       required: true
       options: 
         multiple: true
