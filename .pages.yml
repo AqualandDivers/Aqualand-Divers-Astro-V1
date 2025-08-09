@@ -29,10 +29,14 @@ content:
       required: true
     - name: images
       label: Other Images
-      type: image
+      type: object
       list: true
-      options:
-        multiple: true
+      fields:
+        - name: internal
+          type: image
+          list: 
+            min: 3
+            max: 3
     - name: order
       label: Order of Posts (Services, Courses, professional Courses)
       type: number
