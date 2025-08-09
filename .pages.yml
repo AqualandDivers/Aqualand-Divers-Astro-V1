@@ -28,6 +28,7 @@ content:
       list: true
     - name: order
       label: Order of Posts (Services, Courses, professional Courses)
+      type: number
 
   - name: professional_courses
     label: Professional Courses
@@ -57,6 +58,7 @@ content:
       list: true
     - name: order
       label: Order of Posts (Services, Courses, professional Courses)
+      type: number
 
 
   - name: services
@@ -87,3 +89,4 @@ content:
       list: true
     - name: order
       label: Order of Posts (Services, Courses, professional Courses)
+      type: number
