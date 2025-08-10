@@ -62,8 +62,47 @@ const otherPages = defineCollection({
 		}),
 });
 
+const store = defineCollection ({
+	loader: glob({
+		pattern: "**/[^_]*.{md,mdx}",
+		base: "./src/data/store",
+	}),
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			description: z.string(),
+			header: image(),
+			images: z.array(image()).optional(),
+			// will be excluded from build if draft is "true"
+			order: z.number(),
+			draft: z.boolean().optional(),
+		}),
+});
+
+const tripsevents = defineCollection ({
+	// type: "content",
+	loader: glob({
+		pattern: "**/[^_]*.{md,mdx}",
+		base: "./src/data/trips&events",
+	}),
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			description: z.string(),
+			heroImage: image(),
+			header: image(),
+			sub: z.string(),
+			images: z.array(image()).optional(),
+			date: z.coerce.date(),
+			// will be excluded from build if draft is "true"
+			draft: z.boolean().optional(),
+		}),
+});
+
 export const collections = {
 	portfolios,
 	testimonials,
 	otherPages,
+	store,
+	tripsevents,
 };

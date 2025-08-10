@@ -1,19 +1,17 @@
 ---
-/**
- * * These are small cards that are used in the portfolio section
- */
 import Button from "@components/Button/Button.astro";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
-	portfolio: CollectionEntry<"portfolios">;
+	store: CollectionEntry<"store">;
 	direction: "horizontal" | "vertical";
 	noTransitions?: boolean;
 }
 
-const { portfolio, direction, noTransitions = false } = Astro.props as Props;
-const { title, description, header } = portfolio.data;
+
+const { store, direction, noTransitions = false } = Astro.props as Props;
+const { title, description, header } = store.data;
 ---
 
 <div
@@ -24,7 +22,7 @@ const { title, description, header } = portfolio.data;
 		},
 	]}
 >
-	<a href={`/courses&services/${portfolio.id}`} class="aspect-square overflow-hidden">
+	<a href={`/store/${store.id}`} class="aspect-square overflow-hidden">
 		{
 			noTransitions && (
 				<Image
@@ -44,7 +42,7 @@ const { title, description, header } = portfolio.data;
 					width={450}
 					densities={[1.5, 2, 3]}
 					class="h-auto min-h-full w-full min-w-full object-cover"
-					transition:name={`portfolio-image-${portfolio.id}`}
+					transition:name={`portfolio-image-${store.id}`}
 				/>
 			)
 		}
@@ -55,7 +53,7 @@ const { title, description, header } = portfolio.data;
 			<p class="mt-4 lg:text-lg">{description}</p>
 		</div>
 		<div class="flex">
-			<Button variant="ghost" arrow="right" href={`/courses&services/${portfolio.id}`} class="pl-0">
+			<Button variant="ghost" arrow="right" href={`/store/${store.id}`} class="pl-0">
 				View More
 			</Button>
 		</div>

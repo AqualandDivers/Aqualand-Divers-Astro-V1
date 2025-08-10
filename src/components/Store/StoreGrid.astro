@@ -1,0 +1,15 @@
+---
+import StoreCard from "@components/Store/StoreCard.astro";
+import { type CollectionEntry, getCollection, render } from "astro:content";
+
+interface Props {
+	stores: CollectionEntry<"store">[];
+	noTransitions?: boolean;
+}
+
+const { stores, noTransitions = false } = Astro.props as Props;
+---
+
+<div class="grid gap-x-4 gap-y-10 pt-8 md:grid-cols-3 md:pt-12">
+	{stores.map((store) => <StoreCard store={store} direction="vertical" />)}
+</div>

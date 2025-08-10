@@ -1,0 +1,26 @@
+---
+// layout
+import StoreLayout from "@layouts/StoreLayout.astro";
+import { type InferGetStaticPropsType } from "astro";
+import { type CollectionEntry, getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+	const stores = await getCollection("store", ({ data }) => {
+		// filter out draft pages
+		return data.draft !== true;
+	});
+
+	return stores.map((store) => ({
+		params: { slug: store.id },
+		props: store,
+	}));
+}
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const store = Astro.props as Props;
+const { Content } = await render(store);
+---
+
+<StoreLayout store={store}>
+	<Content />
+</StoreLayout>

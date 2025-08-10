@@ -1,0 +1,27 @@
+---
+// components
+import Contact from "@components/Contact/Contact.astro";
+import StoreGrid from "@components/Store/StoreGrid.astro";
+// layout
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+
+const stores = await getCollection("store", ({ data }) => {
+	// filter out draft pages
+	return data.draft !== true;
+});
+---
+
+<BaseLayout title="Stores" description="Store page.">
+	<div class="site-container pt-24 md:pt-36">
+		<div class="mx-auto max-w-6xl text-center">
+			<h1 class="h2 text-pretty uppercase">
+				Our Courses & Services as a PADI 5 Star Centre
+			</h1>
+		</div>
+		<StoreGrid stores={stores} />
+	</div>
+
+
+	<Contact class="mt-12" />
+</BaseLayout>

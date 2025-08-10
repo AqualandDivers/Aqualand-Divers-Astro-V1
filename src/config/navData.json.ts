@@ -18,16 +18,16 @@ const navConfig: navItem[] = [
 		link: "/courses&services/",
 	},
 	{
+		text: "Store",
+		link: "/store/"
+	},
+	{
+		text: "Trips & Events",
+		link: "/trips&events/",
+	},	
+	{
 		text: "Contact Us",
 		link: "/#contact",
-	},
-	{
-		text: "About Us",
-		link: "/#about"
-	},
-	{
-		text: "Gallery",
-		link: "/Gallery/",
 	},
 	// {                     //in case you need a drop down
 	// 	text: "Pages",
