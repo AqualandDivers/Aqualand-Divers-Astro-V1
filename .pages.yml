@@ -151,7 +151,6 @@ content:
       label: Other Images
       type: image
       list: true
-      required: true
     - name: order
       label: Order of Posts (Services, Courses, professional Courses)
       type: number
