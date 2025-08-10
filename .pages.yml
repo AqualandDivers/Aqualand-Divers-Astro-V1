@@ -127,3 +127,39 @@ content:
     - name: body
       label: Page Content (The actual writing in the page)
       type: text
+
+  - name: store
+    label: Store
+    type: collection
+    path: 'src/data/Store'
+    view:
+      fields: [ title, description, order ]
+    fields:
+    - name: title
+      label: Title
+      type: string
+      required: true
+    - name: description
+      label: Card Description
+      type: rich-text
+      required: true
+    - name: header
+      label: Header Image (for cards)
+      type: image
+      required: true
+    - name: images
+      label: Other Images
+      type: image
+      list: true
+      required: true
+    - name: order
+      label: Order of Posts (Services, Courses, professional Courses)
+      type: number
+      required: true
+    - name: draft
+      label: Do you want to publish this page?
+      type: boolean
+      required: true
+    - name: body
+      label: Page Content (The actual writing in the page)
+      type: text
