@@ -65,7 +65,7 @@ const otherPages = defineCollection({
 const store = defineCollection ({
 	loader: glob({
 		pattern: "**/[^_]*.{md,mdx}",
-		base: "./src/data/store",
+		base: "./src/data/Store",
 	}),
 	schema: ({ image }) =>
 		z.object({
