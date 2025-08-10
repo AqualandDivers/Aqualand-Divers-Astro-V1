@@ -131,7 +131,7 @@ content:
   - name: store
     label: Store
     type: collection
-    path: 'src/data/Store'
+    path: 'src/data/store'
     view:
       fields: [ title, description, order ]
     fields:
