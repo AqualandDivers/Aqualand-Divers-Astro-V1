@@ -7,7 +7,7 @@ import { type CollectionEntry, getCollection, render } from "astro:content";
 export async function getStaticPaths() {
 	const stores = await getCollection("store", ({ data }) => {
 		// filter out draft pages
-		return data.draft !== true;
+		return data.draft !== false;
 	});
 
 	return stores.map((store) => ({

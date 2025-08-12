@@ -19,7 +19,7 @@ const { title, description, images = [], heroImage, sub, header } = portfolio.da
 // find other portfolios to show later down the page
 const otherPortfolios = await getCollection("portfolios", (otherPortfolio) => {
 	// filter out draft pages
-	return otherPortfolio.data.draft !== true && otherPortfolio.id !== portfolio.id;
+	return otherPortfolio.data.draft !== false && otherPortfolio.id !== portfolio.id;
 });
 ---
 

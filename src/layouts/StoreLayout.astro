@@ -21,7 +21,7 @@ const { title, description, images = [], header } = store.data; //date, clients 
 // find other stores to show later down the page
 const otherStores = await getCollection("store", (otherStore) => {
 	// filter out draft pages
-	return otherStore.data.draft !== true && otherStore.id !== store.id;
+	return otherStore.data.draft !== false && otherStore.id !== store.id;
 });
 ---
 

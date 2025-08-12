@@ -9,7 +9,7 @@ export async function getStaticPaths() {
 		"otherPages",
 		({ data }) => {
 			// filter out draft pages
-			return data.draft !== true;
+			return data.draft !== false;
 		},
 	);
 	return otherPages.map((page) => ({

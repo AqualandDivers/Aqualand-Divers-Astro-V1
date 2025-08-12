@@ -8,7 +8,7 @@ import { getCollection, render } from "astro:content";
 
 const stores = await getCollection("store", ({ data }) => {
 	// filter out draft pages
-	return data.draft !== true;
+	return data.draft !== false;
 });
 ---
 

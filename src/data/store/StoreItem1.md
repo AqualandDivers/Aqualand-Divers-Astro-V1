@@ -9,6 +9,6 @@ images:
   - /src/assets/ServicingImageReplaceHero.jpg
   - /src/assets/WhoWeAreReplace.jpg
 order: 3
-draft: false
+draft: true
 ---
 - StoreItem1 body description
