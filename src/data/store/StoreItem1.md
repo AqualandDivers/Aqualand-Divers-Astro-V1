@@ -7,6 +7,7 @@ images:
   - /src/assets/neom-llB7NfKnS8A-unsplash.jpg
   - /src/assets/neom-V8w0gSmxajY-unsplash.jpg
   - /src/assets/ServicingImageReplaceHero.jpg
+  - /src/assets/WhoWeAreReplace.jpg
 order: 3
 draft: false
 ---
