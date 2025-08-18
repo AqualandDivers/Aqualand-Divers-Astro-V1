@@ -1,0 +1,28 @@
+---
+// components
+import Contact from "@components/Contact/Contact.astro";
+import TEGrid from "@components/Trips&Events/TEGrid.astro";
+import TEgrid from "@components/Trips&Events/TEGrid.astro";
+// layout
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+
+const TEs = await getCollection("TE", ({ data }) => {
+	// filter out draft pages
+	return data.draft !== false;
+});
+---
+
+<BaseLayout title="TEs" description="TE page.">
+	<div class="site-container pt-24 md:pt-36">
+		<div class="mx-auto max-w-6xl text-center">
+			<h1 class="h2 text-pretty">
+				Browse all of our upcoming Trips & Events.
+			</h1>
+		</div>
+		<TEGrid TEs={TEs} />
+	</div>
+
+
+	<Contact class="mt-12" />
+</BaseLayout>

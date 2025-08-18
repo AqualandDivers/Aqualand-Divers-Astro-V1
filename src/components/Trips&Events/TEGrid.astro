@@ -1,0 +1,25 @@
+---
+import TECard from "@components/Trips&Events/TECard.astro";
+import { type CollectionEntry, getCollection, render } from "astro:content";
+
+interface Props {
+	TEs: CollectionEntry<"TE">[];
+	noTransitions?: boolean;
+}
+
+const { TEs, noTransitions = false } = Astro.props as Props;
+
+const sortedTEs = TEs.sort((a, b) => {
+	if (a.data.date < b.data.date) {
+		return -1;
+	}
+	if (a.data.date > b.data.date) {
+		return 1;
+	}
+	return 0;
+});
+---
+
+<div class="grid gap-x-4 gap-y-10 pt-8 md:grid-cols-3 md:pt-12">
+	{sortedTEs.map((TE) => <TECard TE={TE} direction="vertical" />)}
+</div>

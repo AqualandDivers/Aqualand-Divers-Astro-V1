@@ -79,7 +79,7 @@ const store = defineCollection ({
 		}),
 });
 
-const tripsevents = defineCollection ({
+const TE = defineCollection ({
 	// type: "content",
 	loader: glob({
 		pattern: "**/[^_]*.{md,mdx}",
@@ -104,5 +104,5 @@ export const collections = {
 	testimonials,
 	otherPages,
 	store,
-	tripsevents,
+	TE,
 };

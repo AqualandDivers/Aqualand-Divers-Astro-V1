@@ -1,0 +1,27 @@
+---
+// layout
+import TELayout from "@layouts/TELayout.astro";
+import { type InferGetStaticPropsType } from "astro";
+import { type CollectionEntry, getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+	const TEs = await getCollection("TE", ({ data }) => {
+		// filter out draft pages
+		return data.draft !== false;
+	});
+
+	return TEs.map((TE) => ({
+		params: { slug: TE.id },
+		props: TE,
+	}));
+}
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const TE = Astro.props as Props;
+const { Content } = await render(TE);
+---
+
+<TELayout TE={TE}>
+	<Content />
+	<div class="lg:text-lg"><br><p>If you are interested in any of our upcoming events, please contact us, or visit in store.</p></div>
+</TELayout>
