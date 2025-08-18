@@ -186,7 +186,7 @@ content:
     # - name: sub
     #   label: Main Page Sub Heading
     #   type: rich-text
-      required: true
+    #  required: true
     - name: header
       label: Header Image (for cards)
       type: image
