@@ -163,3 +163,47 @@ content:
     - name: body
       label: Page Content (The actual writing in the page)
       type: text
+
+  - name: TE
+    label: Trips & Events
+    type: collection
+    path: 'src/data/trips&events'
+    view:
+      fields: [ title, description, order ]
+    fields:
+    - name: title
+      label: Title
+      type: string
+      required: true
+    - name: description
+      label: Card Description
+      type: rich-text
+      required: true
+    - name: heroImage
+      label: Hero Image (Big image at the back)
+      type: image
+      required: true
+    - name: sub
+      label: Main Page Sub Heading
+      type: rich-text
+      required: true
+    - name: header
+      label: Header Image (for cards)
+      type: image
+      required: true
+    - name: images
+      label: Other Images
+      type: image
+      options:
+        multiple: true
+    - name: date
+      label: Date Published (Services, Courses, professional Courses)
+      type: number
+      required: true
+    - name: draft
+      label: Do you want to publish this page?
+      type: boolean
+      required: true
+    - name: body
+      label: Page Content (The actual writing in the page)
+      type: text
