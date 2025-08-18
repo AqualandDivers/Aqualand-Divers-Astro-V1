@@ -1,8 +1,7 @@
 ---
 // components
 import Contact from "@components/Contact/Contact.astro";
-import TEGrid from "@components/Trips&Events/TEGrid.astro";
-import TEgrid from "@components/Trips&Events/TEGrid.astro";
+import TEFlow from "@components/Trips&Events/TEFlow.astro";
 // layout
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { getCollection, render } from "astro:content";
@@ -20,7 +19,7 @@ const TEs = await getCollection("TE", ({ data }) => {
 				Browse all of our upcoming Trips & Events.
 			</h1>
 		</div>
-		<TEGrid TEs={TEs} />
+		<TEFlow TEs={TEs} />
 	</div>
 
 

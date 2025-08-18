@@ -7,10 +7,10 @@ const TEs = await getCollection("TE");
 
 const sortedTEs = TEs.sort((a, b) => {
 	if (a.data.date < b.data.date) {
-		return -1;
+		return 1;
 	}
 	if (a.data.date > b.data.date) {
-		return 1;
+		return -1;
 	}
 	return 0;
 });
