@@ -91,7 +91,7 @@ const TE = defineCollection ({
 			description: z.string(),
 			heroImage: image(),
 			header: image(),
-			sub: z.string(),
+			sub: z.string().optional(),
 			images: z.array(image()).optional(),
 			date: z.coerce.date(),
 			// will be excluded from build if draft is "true"
