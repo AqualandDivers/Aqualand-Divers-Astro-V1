@@ -1,6 +1,6 @@
 ---
 title: StoreItem1
-description: StoreItem1 Description
+description: StoreItem1 Description Updated
 header: /src/assets/ServicingImageReplaceHero.jpg
 images:
   - /src/assets/jesse-van-vliet-_8b7AW-p3Js-unsplash.jpg
