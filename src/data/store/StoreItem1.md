@@ -8,7 +8,7 @@ images:
   - /src/assets/neom-V8w0gSmxajY-unsplash.jpg
   - /src/assets/ServicingImageReplaceHero.jpg
   - /src/assets/WhoWeAreReplace.jpg
-order: 3
+order: 1
 draft: true
 ---
 - StoreItem1 body description
