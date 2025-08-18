@@ -198,7 +198,7 @@ content:
         multiple: true
     - name: date
       label: Date Published (Services, Courses, professional Courses)
-      type: number
+      type: date
       required: true
     - name: draft
       label: Do you want to publish this page?
