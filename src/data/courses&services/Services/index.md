@@ -12,4 +12,4 @@ order: 2
  - 02 cleaning £25.00
  - ​
  - Additional services may be available upon request in-store.
- - We are certified by the Inspectorate for Diving Equipment Servicing and Testing, testing to EN 1802/1968:2002. 
+ - We are certified by the Inspectorate for Diving Equipment Servicing and Testing, testing to BS EN 18119:2018. 
