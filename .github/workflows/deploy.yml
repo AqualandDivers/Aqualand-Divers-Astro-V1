@@ -1,4 +1,7 @@
-name: Build and Deploy Astro
+name: Build and Deploy Astro to UK2
+
+permissions:
+  contents: write
 
 on:
   push:
@@ -14,20 +17,21 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Install Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build Astro site
         run: npm run build
 
-      - name: Deploy dist to deploy branch
+      - name: Push only dist/ to deploy branch
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: deploy
+          force_orphan: true
