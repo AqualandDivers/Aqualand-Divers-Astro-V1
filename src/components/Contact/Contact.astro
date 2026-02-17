@@ -12,7 +12,7 @@ interface Props {
 
 const { class: className } = Astro.props as Props;
 
-import ringsImage from "@assets/images/ContactReplace.jpg";
+import contactImage from "@assets/images/ContactReplace.jpg";
 ---
 
 <section
@@ -30,8 +30,8 @@ import ringsImage from "@assets/images/ContactReplace.jpg";
 			</p>
 			<div class="mx-auto mt-8 aspect-square overflow-hidden">
 				<Image
-					src={ringsImage}
-					alt="wedding rings"
+					src={contactImage}
+					alt="Contact Image"
 					loading="lazy"
 					width={450}
 					densities={[1.5, 2]}
