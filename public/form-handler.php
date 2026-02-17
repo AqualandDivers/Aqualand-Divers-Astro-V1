@@ -25,7 +25,7 @@ if (mail($to, $subject, $body, $headers)) {
   $replySubject = "Thanks for contacting Aqualand Divers!";
 
   $replyBody = "Dear $name,\n\n";
-  $replyBody .= "Thank you for reaching out to Aqualand Divers, we have received your message and will get back in touch shortly.\nUntil then, you can call us any time at 01245 477701\n";
+  $replyBody .= "Thank you for reaching out to Aqualand Divers, we have received your message and will get back in touch shortly.\nUntil then, you can call us any time at 01245 477701.\n\n";
   $replyBody .= "Kind regards,\n";
   $replyBody .= "Aqualand Divers Team\n";
   $replyBody .= "https://twttesting.online\n";
