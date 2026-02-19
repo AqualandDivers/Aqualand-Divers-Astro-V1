@@ -10,4 +10,4 @@ sub: We are a PADI five star dive centre, and offer a large number of courses
 header: /src/assets/ServicingImageReplaceHero.jpg
 order: 3
 ---
-- Open water diver - $testing
+- Open water diver
