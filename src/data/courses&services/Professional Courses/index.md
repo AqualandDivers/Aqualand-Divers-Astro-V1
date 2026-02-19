@@ -1,8 +1,9 @@
 ---
 title: Professional Courses
-description: Service your equipment with Aqualand Divers.
+description: We offer all levels of PADI Professional courses.
 heroImage: /src/assets/ServicingImageReplaceHero.jpg
-sub: We offer all services required to maintain your equipment.
+sub: As a PADI five star dive centre, we offer a large number of professional
+  courses.
 header: /src/assets/ServicingImageReplaceHero.jpg
 order: 1
 ---
