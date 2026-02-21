@@ -1,9 +1,9 @@
 media: src/assets
 content:
   - name: courses
-    label: Courses
+    label: Courses and Services
     type: collection
-    path: 'src/data/courses&services/Courses'
+    path: 'src/data/courses&services'
     view:
       fields: [ title, description, order ]
     fields:
@@ -46,87 +46,6 @@ content:
       label: Page Content (The actual writing in the page)
       type: text
 
-  
-  - name: professional_courses
-    label: Professional Courses
-    type: collection
-    path: 'src/data/courses&services/Professional Courses'
-    view:
-      fields: [ title, description, order ]
-    fields:
-    - name: title
-      label: Title
-      type: string
-      required: true
-    - name: description
-      label: Card Description
-      type: rich-text
-      required: true
-    - name: heroImage
-      label: Hero Image (Big image at the back)
-      type: image
-      required: true
-    - name: sub
-      label: Main Page Sub Heading
-      type: rich-text
-      required: true
-    - name: header
-      label: Header Image (for cards)
-      type: image
-      required: true
-    # - name: images
-    #   label: Other Images
-    #   type: image
-    #   list: true
-      required: true
-    - name: order
-      label: Order of Posts (Services, Courses, professional Courses)
-      type: number
-      required: true
-    - name: body
-      label: Page Content (The actual writing in the page)
-      type: text
-
-
-  - name: services
-    label: Services
-    type: collection
-    path: 'src/data/courses&services/Services'
-    view:
-      fields: [ title, description, order ]
-    fields:
-    - name: title
-      label: Title
-      type: string
-      required: true
-    - name: description
-      label: Card Description
-      type: rich-text
-      required: true
-    - name: heroImage
-      label: Hero Image (Big image at the back)
-      type: image
-      required: true
-    - name: sub
-      label: Main Page Sub Heading
-      type: rich-text
-      required: true
-    - name: header
-      label: Header Image (for cards)
-      type: image
-      required: true
-    # - name: images
-    #   label: Other Images
-    #   type: image
-    #   list: true
-    #   required: true
-    - name: order
-      label: Order of Posts (Services, Courses, professional Courses)
-      type: number
-      required: true
-    - name: body
-      label: Page Content (The actual writing in the page)
-      type: text
 
   - name: store
     label: Store
