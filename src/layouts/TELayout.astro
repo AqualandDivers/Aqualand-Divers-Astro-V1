@@ -109,7 +109,10 @@ const otherTEs = await getCollection("TE", (otherTE) => {
 					class="w-full object-cover"
 				/>
 				<div class="md:pr-16 md:pl-28 text-4xl text-pretty md:text-4xl">
-					<slot />
+					{(TE.body || '').trim().split('\n').filter(line => line.trim()).map((line) => (
+						<p>{line}</p>
+					))}
+					<div class="lg:text-lg"><br /><p>If you are interested in any of our upcoming events, please contact us, or visit in store.</p></div>
 					<!-- second half -->
 				</div>
 			</div>

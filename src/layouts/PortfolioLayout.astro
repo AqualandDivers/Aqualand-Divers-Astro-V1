@@ -100,7 +100,9 @@ const otherPortfolios = await getCollection("portfolios", (otherPortfolio) => {
 
 		<!-- slot really only fuctions as a longer description -->
 		<div class="description text-center text-pretty md:text-lg md:text-4x1">
-			<slot />
+			{(portfolio.body || '').trim().split('\n').filter(line => line.trim()).map((line) => (
+				<p>{line}</p>
+			))}
 		</div>
 
 		<!-- portfolio images -->
