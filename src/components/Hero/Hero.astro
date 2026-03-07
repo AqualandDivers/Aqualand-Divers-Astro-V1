@@ -5,18 +5,18 @@
  */
 
 import Button from "@components/Button/Button.astro";
-import heroImage from "@images/MainBGImage.jpg";
-import heroImageMobile from "@images/MainBGImage.jpg";
+import heroImage from "@images/Aqualand Pictures/IMG_1371.jpeg";
+import heroImageMobile from "@images/Aqualand Pictures/IMG_1371.jpeg";
 import { Image } from "astro:assets";
 ---
 
-<section id="hero" class="relative z-10 flex min-h-[80lvh] w-full">
+<section id="hero" class="relative z-10 flex min-h-[55lvh] w-full">
 	<!-- background image -->
 	<div class="absolute -z-10 h-full min-h-full overflow-hidden w-full">
 		<div class="absolute inset-0 bg-black/10 mix-blend-hard-light"></div>
 		<Image
 			src={heroImage}
-			class="hidden h-auto min-h-full w-full object-cover object-bottom sm:block bg-transparent"
+			class="hidden h-full w-full object-cover object-center sm:block bg-transparent"
 			alt="diving"
 			aria-hidden="false"
 			loading="eager"
@@ -24,7 +24,7 @@ import { Image } from "astro:assets";
 		/>
 		<Image
 			src={heroImageMobile}
-			class="h-auto min-h-full w-full object-cover sm:hidden"
+			class="h-full w-full object-cover object-center sm:hidden"
 			alt="diving"
 			aria-hidden="true"
 			loading="eager"
