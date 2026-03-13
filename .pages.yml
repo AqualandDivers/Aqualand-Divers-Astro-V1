@@ -15,6 +15,10 @@ content:
       label: Card Description
       type: rich-text
       required: true
+    - name: header
+      label: Header Image (for cards)
+      type: image
+      required: true
     - name: heroImage
       label: Hero Image (Big image at the back)
       type: image
@@ -22,10 +26,6 @@ content:
     - name: sub
       label: Main Page Sub Heading
       type: rich-text
-      required: true
-    - name: header
-      label: Header Image (for cards)
-      type: image
       required: true
     # - name: images
     #   label: Other Images

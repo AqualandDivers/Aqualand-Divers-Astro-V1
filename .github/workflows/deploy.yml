@@ -37,12 +37,12 @@ jobs:
           force_orphan: true
 
       - name: Deploy to UK2 via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASS }}
           local-dir: ./dist/
           server-dir: /public_html/
-          timeout: 20000
+          timeout: 190000
           protocol: ftps
