@@ -1,8 +1,8 @@
 ---
 title: Professional Courses
-description: Service your equipment with Aqualand Divers.
+description: Looking to take diving further? Learn with us.
 header: /src/assets/ServicingImageReplaceHero.jpg
 heroImage: /src/assets/ServicingImageReplaceHero.jpg
-sub: We offer all services required to maintain your equipment
+sub: We offer a variety of Professional Courses.
 order: 1
 ---
