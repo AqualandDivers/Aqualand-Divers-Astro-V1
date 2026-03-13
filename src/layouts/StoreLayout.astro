@@ -1,22 +1,49 @@
 ---
 import Contact from "@components/Contact/Contact.astro";
-import StoreImage from "@components/Store/StoreImage.astro";
 import StoreGrid from "@components/Store/StoreGrid.astro";
+import StoreImage from "@components/Store/StoreImage.astro";
+import heroImage from "@images/MainBGImageReplaceSecond.jpg";
+import heroImageMobile from "@images/MainBGImageReplaceSecond.jpg";
+import headerImage from "@images/portfolio-header-crop-min.jpg";
 import { Image } from "astro:assets";
 import { type CollectionEntry, getCollection } from "astro:content";
 
 import BaseLayout from "./BaseLayout.astro";
-import heroImage from "@images/MainBGImageReplaceSecond.jpg";
-import heroImageMobile from "@images/MainBGImageReplaceSecond.jpg";
 
 interface Props {
 	store: CollectionEntry<"store">;
 }
 
-import headerImage from "@images/portfolio-header-crop-min.jpg";
-
 const { store } = Astro.props as Props;
 const { title, description, images = [], header } = store.data; //date, clients removed
+
+const escapeHtml = (value: string) =>
+	value
+		.replaceAll("&", "&amp;")
+		.replaceAll("<", "&lt;")
+		.replaceAll(">", "&gt;")
+		.replaceAll('"', "&quot;")
+		.replaceAll("'", "&#39;");
+
+const allowedHtmlPatterns = [
+	/^<h([1-6])(\s[^>]*)?>.*<\/h\1>$/i,
+	/^<p(\s[^>]*)?>.*<\/p>$/i,
+	/^<a(\s[^>]*)?>.*<\/a>$/i,
+	/^<img(\s[^>]*)?\s*\/?>$/i,
+	/^<br\s*\/?>$/i,
+	/^<(div|section)(\s[^>]*)?>$/i,
+	/^<\/(div|section)>$/i,
+];
+
+const isAllowedHtmlLine = (line: string) =>
+	allowedHtmlPatterns.some((pattern) => pattern.test(line));
+
+const storeBodyHtml = (store.body ?? "")
+	.split(/\r?\n/)
+	.map((line) => line.trim())
+	.filter(Boolean)
+	.map((line) => (isAllowedHtmlLine(line) ? line : `<p>${escapeHtml(line)}</p>`))
+	.join("\n");
 
 // find other stores to show later down the page
 const otherStores = await getCollection("store", (otherStore) => {
@@ -108,13 +135,10 @@ const otherStores = await getCollection("store", (otherStore) => {
 					densities={[1.5, 2]}
 					class="w-full object-cover"
 				/>
-				<div class="md:pr-16 md:pl-28 text-4xl text-pretty md:text-4xl">
-					{(store.body || '').trim().split('\n').filter(line => line.trim()).map((line) => (
-						<p>{line}</p>
-					))}
-					<div class="lg:text-lg"><br /><p>If you are interested in purchasing a listed product, please contact us, or visit in store.</p></div>
-					<!-- second half -->
+				<div class="markdown-content md:pr-16 md:pl-28 text-4xl text-pretty md:text-4xl" set:html={storeBodyHtml}>
 				</div>
+				<div class="lg:text-lg"><br /><p>If you are interested in purchasing a listed product, please contact us, or visit in store.</p></div>
+				<!-- second half -->
 			</div>
 		</section>
 

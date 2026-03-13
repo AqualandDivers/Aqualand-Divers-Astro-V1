@@ -16,6 +16,34 @@ import headerImage from "@images/portfolio-header-crop-min.jpg";
 const { portfolio } = Astro.props as Props;
 const { title, description, images = [], heroImage, sub, header } = portfolio.data; //date, clients removed
 
+const escapeHtml = (value: string) =>
+	value
+		.replaceAll("&", "&amp;")
+		.replaceAll("<", "&lt;")
+		.replaceAll(">", "&gt;")
+		.replaceAll('"', "&quot;")
+		.replaceAll("'", "&#39;");
+
+const allowedHtmlPatterns = [
+	/^<h([1-6])(\s[^>]*)?>.*<\/h\1>$/i,
+	/^<p(\s[^>]*)?>.*<\/p>$/i,
+	/^<a(\s[^>]*)?>.*<\/a>$/i,
+	/^<img(\s[^>]*)?\s*\/?>$/i,
+	/^<br\s*\/?>$/i,
+	/^<(div|section)(\s[^>]*)?>$/i,
+	/^<\/(div|section)>$/i,
+];
+
+const isAllowedHtmlLine = (line: string) =>
+	allowedHtmlPatterns.some((pattern) => pattern.test(line));
+
+const portfolioBodyHtml = (portfolio.body ?? "")
+	.split(/\r?\n/)
+	.map((line) => line.trim())
+	.filter(Boolean)
+	.map((line) => (isAllowedHtmlLine(line) ? line : `<p>${escapeHtml(line)}</p>`))
+	.join("\n");
+
 // find other portfolios to show later down the page
 const otherPortfolios = await getCollection("portfolios", (otherPortfolio) => {
 	// filter out draft pages
@@ -99,10 +127,7 @@ const otherPortfolios = await getCollection("portfolios", (otherPortfolio) => {
 		</h2> -->
 
 		<!-- slot really only fuctions as a longer description -->
-		<div class="description text-center text-pretty md:text-lg md:text-4x1">
-			{(portfolio.body || '').trim().split('\n').filter(line => line.trim()).map((line) => (
-				<p>{line}</p>
-			))}
+		<div class="description markdown-content text-center text-pretty md:text-lg md:text-4x1" set:html={portfolioBodyHtml}>
 		</div>
 
 		<!-- portfolio images -->
