@@ -84,7 +84,7 @@ order: 3
 <p class="m-0 font-semibold">GBP 165.00</p>
 </div>
 </div>
-<p class="mt-4 text-sm opacity-75">All quoted prices include student pack/manual where applicable or e -learning and final certification, but exclude any diving equipment needed boat/dive site, entrance fees or travel costs</p>
 <p class="mt-4 text-sm opacity-75">* Denotes dry land-based courses</p>
 <p class="m-0 text-sm opacity-75">** Excludes Divemaster professional registration fee payable to PADI </p>
+<p class="mt-4 text-sm opacity-75">All quoted prices include student pack/manual where applicable or e -learning and final certification, but exclude any diving equipment needed boat/dive site, entrance fees or travel costs</p>
 </section>
