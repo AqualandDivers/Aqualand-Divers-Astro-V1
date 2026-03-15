@@ -3,8 +3,13 @@ title: Courses
 description: We offer a variety of courses for divers of all experience levels.
 header: /src/assets/OWDImage1.webp
 heroImage: /src/assets/ServicingImageReplaceHero.jpg
-sub: We are a PADI five star dive centre, and offer a large number of courses
-  for amateur divers
+sub: >-
+  Are you looking for your first underwater experience, or just wanting to
+  further your abilities?
+
+
+  Here at Aqualand Drivers, we offer a range of courses from beginner try dives
+  to dive master and beyond.
 order: 3
 ---
 <section class="not-content mt-10">
