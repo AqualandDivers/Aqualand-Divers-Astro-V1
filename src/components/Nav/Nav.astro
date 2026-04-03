@@ -21,6 +21,7 @@ const { startStyle = "default", rest } = Astro.props as Props;
 <div
 	id="nav__container"
 	class="initial fixed top-0 left-0 z-30 flex w-full flex-col py-2 transition-[padding,background-color] duration-300"
+	data-start-style={startStyle}
 	transition:name={`nav`}
 	{...rest}
 >
@@ -76,33 +77,147 @@ const { startStyle = "default", rest } = Astro.props as Props;
 <script>
 	let navbar: HTMLElement | null;
 	let navCTA: HTMLElement | null;
-	let logoImg;
-	const logow = "/images/LogoV11W.png";
-	const logo = "/images/LogoV11.png";
+	let logoImg: HTMLImageElement | null;
+	const logoDark = "/images/LogoV11.png";
+	const logoLight = "/images/LogoV11W.png";
+	const brightnessThreshold = 145;
+	let startStyle = "default";
 
+	function setLogo(src: string) {
+		if (!logoImg) return;
+
+		if (logoImg.getAttribute("src") !== src) {
+			logoImg.src = src;
+			logoImg.removeAttribute("srcset");
+			logoImg.removeAttribute("sizes");
+		}
+	}
+
+	function getVisibleHeroImage() {
+		const heroImages = Array.from(document.querySelectorAll<HTMLImageElement>("#hero img"));
+
+		return (
+			heroImages.find((image) => {
+				const style = window.getComputedStyle(image);
+				const rect = image.getBoundingClientRect();
+
+				return style.display !== "none" && style.visibility !== "hidden" && rect.width > 0 && rect.height > 0;
+			}) ?? null
+		);
+	}
+
+	function getAverageBrightness(image: HTMLImageElement, sampleRect: DOMRect) {
+		if (!image.complete || image.naturalWidth === 0 || image.naturalHeight === 0) return null;
+
+		const imageRect = image.getBoundingClientRect();
+		const overlapLeft = Math.max(sampleRect.left, imageRect.left);
+		const overlapTop = Math.max(sampleRect.top, imageRect.top);
+		const overlapRight = Math.min(sampleRect.right, imageRect.right);
+		const overlapBottom = Math.min(sampleRect.bottom, imageRect.bottom);
+
+		if (overlapRight <= overlapLeft || overlapBottom <= overlapTop) return null;
+
+		const scale = Math.max(imageRect.width / image.naturalWidth, imageRect.height / image.naturalHeight);
+		const renderedWidth = image.naturalWidth * scale;
+		const renderedHeight = image.naturalHeight * scale;
+		const offsetX = (imageRect.width - renderedWidth) / 2;
+		const offsetY = (imageRect.height - renderedHeight) / 2;
+
+		const sourceX = (overlapLeft - imageRect.left - offsetX) / scale;
+		const sourceY = (overlapTop - imageRect.top - offsetY) / scale;
+		const sourceW = (overlapRight - overlapLeft) / scale;
+		const sourceH = (overlapBottom - overlapTop) / scale;
+
+		if (sourceW <= 0 || sourceH <= 0) return null;
+
+		const canvas = document.createElement("canvas");
+		const width = Math.max(1, Math.round(overlapRight - overlapLeft));
+		const height = Math.max(1, Math.round(overlapBottom - overlapTop));
+		canvas.width = width;
+		canvas.height = height;
+
+		const ctx = canvas.getContext("2d", { willReadFrequently: true });
+		if (!ctx) return null;
+
+		ctx.drawImage(image, sourceX, sourceY, sourceW, sourceH, 0, 0, width, height);
+
+		const { data } = ctx.getImageData(0, 0, width, height);
+		let total = 0;
+		let count = 0;
+
+		for (let i = 0; i < data.length; i += 16) {
+			const alpha = data[i + 3];
+			if (alpha === 0) continue;
+
+			const red = data[i];
+			const green = data[i + 1];
+			const blue = data[i + 2];
+			total += 0.2126 * red + 0.7152 * green + 0.0722 * blue;
+			count += 1;
+		}
+
+		return count > 0 ? total / count : null;
+	}
+
+	function updateLogoForBackground() {
+		if (!logoImg) return;
+
+		if (window.scrollY > 50) {
+			setLogo(logoDark);
+			return;
+		}
+
+		if (window.location.pathname !== "/") {
+			setLogo(startStyle === "white" ? logoLight : logoDark);
+			return;
+		}
+
+		if (startStyle === "white") {
+			setLogo(logoLight);
+			return;
+		}
+
+		const heroImage = getVisibleHeroImage();
+		if (!heroImage) {
+			setLogo(logoDark);
+			return;
+		}
+
+		const brightness = getAverageBrightness(heroImage, logoImg.getBoundingClientRect());
+		setLogo(brightness !== null && brightness >= brightnessThreshold ? logoDark : logoLight);
+	}
 
 	function scrollHandler() {
-		if (navbar) {
-			if (window.scrollY > 50) {
-				// if we have scrolled down the page a bit, adjust colors
-				navbar.classList.add("scrolled");
-				navbar.classList.remove("initial");
-				navCTA?.setAttribute("data-scrolled", "true");
-				if (window.location.pathname === "/") logoImg.src = logo;
-			} else {
-				navbar.classList.add("initial");
-				navbar.classList.remove("scrolled");
-				navCTA?.setAttribute("data-scrolled", "false");
-				if (window.location.pathname === "/") logoImg.src = logow;
-			}
+		if (!navbar) return;
+
+		if (window.scrollY > 50) {
+			// if we have scrolled down the page a bit, adjust colors
+			navbar.classList.add("scrolled");
+			navbar.classList.remove("initial");
+			navCTA?.setAttribute("data-scrolled", "true");
+		} else {
+			navbar.classList.add("initial");
+			navbar.classList.remove("scrolled");
+			navCTA?.setAttribute("data-scrolled", "false");
 		}
+
+		updateLogoForBackground();
 	}
 
 	function initNav() {
 		navbar = document.getElementById("nav__container");
-		logoImg = document.getElementById("site-logo");
-		navCTA = navbar?.querySelector(".nav__cta") as HTMLElement;
+		logoImg = document.getElementById("site-logo") as HTMLImageElement | null;
+		navCTA = navbar?.querySelector(".nav__cta") as HTMLElement | null;
+		startStyle = navbar?.dataset.startStyle ?? "default";
+
+		window.removeEventListener("scroll", scrollHandler);
+		window.removeEventListener("resize", scrollHandler);
+		window.removeEventListener("load", scrollHandler);
+
 		window.addEventListener("scroll", scrollHandler, { passive: true });
+		window.addEventListener("resize", scrollHandler, { passive: true });
+		window.addEventListener("load", scrollHandler, { once: true });
+
 		scrollHandler();
 	}
 

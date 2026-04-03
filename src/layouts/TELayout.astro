@@ -25,25 +25,65 @@ const escapeHtml = (value: string) =>
 		.replaceAll('"', "&quot;")
 		.replaceAll("'", "&#39;");
 
-const allowedHtmlPatterns = [
-	/^<h([1-6])(\s[^>]*)?>.*<\/h\1>$/i,
-	/^<p(\s[^>]*)?>.*<\/p>$/i,
-	/^<a(\s[^>]*)?>.*<\/a>$/i,
-	/^<img(\s[^>]*)?\s*\/?>$/i,
-	/^<br\s*\/?>$/i,
-	/^<(div|section)(\s[^>]*)?>$/i,
-	/^<\/(div|section)>$/i,
-];
+const allowedTags = new Set(["h1", "h2", "h3", "h4", "h5", "h6", "p", "a", "img", "br", "div", "section"]);
+const selfClosingTags = new Set(["img", "br"]);
 
-const isAllowedHtmlLine = (line: string) =>
-	allowedHtmlPatterns.some((pattern) => pattern.test(line));
+const buildBodyHtml = (body: string | undefined) => {
+	const lines = (body ?? "").split(/\r?\n/);
+	const output: string[] = [];
+	const openTagStack: string[] = [];
+	const tagRegex = /<\s*(\/?)\s*([a-zA-Z][\w-]*)\b[^>]*?>/g;
 
-const TEBodyHtml = (TE.body ?? "")
-	.split(/\r?\n/)
-	.map((line) => line.trim())
-	.filter(Boolean)
-	.map((line) => (isAllowedHtmlLine(line) ? line : `<p>${escapeHtml(line)}</p>`))
-	.join("\n");
+	for (const rawLine of lines) {
+		const line = rawLine.trim();
+		if (!line) {
+			continue;
+		}
+
+		const tags = [...line.matchAll(tagRegex)];
+		const hasTags = tags.length > 0;
+		const hasDisallowedTag = tags.some((match) => !allowedTags.has(match[2].toLowerCase()));
+		const insideHtmlBlock = openTagStack.length > 0;
+
+		if (hasTags && !hasDisallowedTag) {
+			output.push(line);
+
+			for (const match of tags) {
+				const isClosing = match[1] === "/";
+				const tag = match[2].toLowerCase();
+				const fullTag = match[0];
+				const isSelfClosing = selfClosingTags.has(tag) || /\/\s*>$/.test(fullTag);
+
+				if (isSelfClosing) {
+					continue;
+				}
+
+				if (isClosing) {
+					for (let i = openTagStack.length - 1; i >= 0; i--) {
+						if (openTagStack[i] === tag) {
+							openTagStack.splice(i, 1);
+							break;
+						}
+					}
+				} else {
+					openTagStack.push(tag);
+				}
+			}
+
+			continue;
+		}
+
+		if (insideHtmlBlock) {
+			output.push(escapeHtml(line));
+		} else {
+			output.push(`<p>${escapeHtml(line)}</p>`);
+		}
+	}
+
+	return output.join("\n");
+};
+
+const TEBodyHtml = buildBodyHtml(TE.body);
 
 // find other TEs to show later down the page
 const otherTEs = await getCollection("TE", (otherTE) => {

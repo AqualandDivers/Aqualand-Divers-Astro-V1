@@ -18,10 +18,14 @@ import CinzelDecorative from "@fontsource/cinzel-decorative/files/cinzel-decorat
 import PlayfairDisplayVariable from "@fontsource-variable/playfair-display/files/playfair-display-latin-wght-normal.woff2";
 import RalewayVariable from "@fontsource-variable/raleway/files/raleway-latin-wght-normal.woff2";
 import WorkSansVariable from "@fontsource-variable/work-sans/files/work-sans-latin-wght-normal.woff2";
+
+const csp =
+	"default-src 'self';   script-src 'self' 'sha256-ltPrXWtTMC8yX9zv/8mNePTltAK3G3rv6V82DcHzih0=' 'sha256-ZswfTY7H35rbv8WC7NXBoiC7WNu86vSzCDChNWwZZDM=' 'sha256-ko5g3xmXdYKqFf77t6v9YYDJnDI/TZW+dwjbyC9qZPs=' 'sha256-zU42OqprG7IXmtfa3U/jb+/YrNpO3OfP+dQv90hdgtc=' 'sha256-SozW1E9r78HTf2jzx56qhcRReZyp5sG3BRW6zgnJj+c=' https://static.cloudflareinsights.com;   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;   font-src 'self' https://fonts.gstatic.com;   img-src 'self' data:;   connect-src 'self';   frame-ancestors 'none';   base-uri 'self';   upgrade insecure requests;";
 ---
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" initial-scale="1.0" />
+<meta http-equiv="Content-Security-Policy" content={csp} />
 
 <!-- local font preload for better performance when not using ClientRouter -->
 <link rel="preload" href={WorkSansVariable} as="font" type="font/woff2" crossorigin="anonymous" />
