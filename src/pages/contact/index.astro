@@ -1,0 +1,100 @@
+---
+import ContactForm from "@components/Forms/ContactForm.astro";
+import siteData from "@config/siteData.json";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import heroImage from "@images/Aqualand Pictures/IMG_1371.jpeg";
+import { Image } from "astro:assets";
+
+const openingHours = [
+	{ day: "Monday", hours: "Closed" },
+	{ day: "Tuesday", hours: "10:00 - 16:00" },
+	{ day: "Wednesday", hours: "10:00 - 16:00" },
+	{ day: "Thursday", hours: "10:00 - 16:00" },
+	{ day: "Friday", hours: "10:00 - 16:00" },
+	{ day: "Saturday", hours: "10:00 - 14:30" },
+	{ day: "Sunday", hours: "Closed" },
+];
+---
+
+<BaseLayout
+	title={`Contact | ${siteData.name}`}
+	description="Get in touch with Aqualand Divers for course bookings, servicing, and dive enquiries."
+	navStartStyle="white"
+>
+	<section class="relative z-10 flex min-h-[45lvh] w-full">
+		<div class="absolute -z-10 h-full min-h-full w-full overflow-hidden">
+			<div class="absolute inset-0 bg-black/40"></div>
+			<Image
+				src={heroImage}
+				class="h-full w-full object-cover object-center"
+				alt="Scuba diver underwater"
+				loading="eager"
+				width={1800}
+			/>
+		</div>
+
+		<div class="site-container relative w-full py-32 text-base-50 md:py-40">
+			<div class="max-w-2xl">
+				<p class="font-heading-1 text-sm tracking-[0.25em] uppercase text-white/80">Aqualand Divers</p>
+				<h1 class="font-heading-1 mt-4 text-4xl font-semibold text-pretty md:text-6xl">Contact Us</h1>
+				<p class="mt-6 max-w-xl text-lg text-white/95 md:text-xl">
+					Questions about courses, equipment servicing, or upcoming trips? Send us a message and our
+					team will get back to you quickly.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="site-container py-14 md:py-20">
+		<div class="grid gap-10 lg:grid-cols-[minmax(0,1.4fr)_minmax(260px,0.8fr)] lg:items-stretch">
+			<div class="flex h-full flex-col border-[#273fa3] bg-base-50 p-6 sm:p-8 md:p-10 lg:border">
+				<h2 class="h2">Send us a message</h2>
+				<p class="description mt-4 max-w-2xl text-lg">
+					Use the form below and we will respond as soon as possible. If your enquiry is urgent,
+					please call us directly.
+				</p>
+				<div class="mt-8 flex-1">
+					<ContactForm />
+				</div>
+			</div>
+
+			<aside class="flex h-full flex-col gap-6">
+				<div class="flex-1 border-[#273fa3] bg-primary-50 p-6 sm:p-7 border">
+					<h3 class="h3">Contact Details</h3>
+					<ul class="mt-4 space-y-4 text-base-800">
+						<li>
+							<p class="font-heading-1 text-sm uppercase tracking-wider">Phone</p>
+							<a href="tel:01245477701" class="mt-1 block text-lg hover:opacity-80">01245 477701</a>
+						</li>
+						<li>
+							<p class="font-heading-1 text-sm uppercase tracking-wider">Email</p>
+							<a href="mailto:info@aqualanddivers.co.uk" class="mt-1 block text-lg hover:opacity-80">
+								aqualanddivers@gmail.com
+							</a>
+						</li>
+						<li>
+							<p class="font-heading-1 text-sm uppercase tracking-wider">Location</p>
+							<p class="mt-1 text-lg">
+								Aqualand Divers<br />47 Church St, Chelmsford, CM2 7JA
+							</p>
+						</li>
+					</ul>
+				</div>
+
+				<div class="border-[#273fa3] bg-base-50 p-6 sm:p-7 border">
+					<h3 class="h3">Opening Times</h3>
+					<ul class="mt-4 space-y-2">
+						{
+							openingHours.map(({ day, hours }) => (
+								<li class="flex items-center justify-between gap-4 border-b border-base-200 py-2 text-base-800">
+									<span class="font-heading-1 uppercase tracking-wide">{day}</span>
+									<span>{hours}</span>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+			</aside>
+		</div>
+	</section>
+</BaseLayout>

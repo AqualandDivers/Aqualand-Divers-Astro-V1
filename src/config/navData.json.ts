@@ -27,7 +27,7 @@ const navConfig: navItem[] = [
 	},	
 	{
 		text: "Contact Us",
-		link: "/#contact",
+		link: "/contact/",
 	},
 	// {                     //in case you need a drop down
 	// 	text: "Pages",
