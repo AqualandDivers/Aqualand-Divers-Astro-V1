@@ -1,7 +1,7 @@
 ---
 title: Courses
 description: We offer a variety of courses for divers of all experience levels.
-header: /src/assets/OWDImage1.webp
+header: /src/assets/IMG_1309.jpeg
 heroImage: /src/assets/ServicingImageReplaceHero.jpg
 sub: >-
   Are you looking for your first underwater experience, or just wanting to
