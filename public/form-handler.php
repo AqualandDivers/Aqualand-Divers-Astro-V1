@@ -1,11 +1,5 @@
 <?php
 session_start();
-
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    http_response_code(405);
-    die("Method not allowed.");
-}
-
 // Honeypot
 if (!empty($_POST['website'])) {
     http_response_code(400);
