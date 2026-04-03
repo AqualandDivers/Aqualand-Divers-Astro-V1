@@ -17,9 +17,9 @@ export interface SiteDataProps {
 const siteData: SiteDataProps = {
 	name: "Aqualand Divers",
 	// Your website's title and description (meta fields)
-	title: "Aqualand Divers - A dive centre at the heart of diving.",
+	title: "Aqualand Divers - PADI 5 Star Dive Centre, Chelmsford Essex",
 	description:
-		"At Aqualand Divers we provide a range of PADI Courses as well as Servicing for all dive equipment, as a five star PADI dive centre ",
+		"At Aqualand Divers we provide a range of PADI Courses as well as Servicing for all dive equipment, as a five star PADI dive centre. Chelmsford Essex.",
 	useViewTransitions: true,
 	// Your information!
 	author: {
