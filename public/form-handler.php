@@ -1,32 +1,8 @@
 <?php
-session_start();
-// Honeypot
-if (!empty($_POST['website'])) {
-    http_response_code(400);
-    die("Spam detected.");
-}
 
-// Rate limit
-$now = time();
-if (isset($_SESSION['last_form_submit']) && ($now - $_SESSION['last_form_submit']) < 30) {
-    http_response_code(429);
-    die("Please wait before submitting again.");
-}
-$_SESSION['last_form_submit'] = $now;
-
-$name    = trim(htmlspecialchars($_POST["name"] ?? ''));
-$email   = trim(htmlspecialchars($_POST["email"] ?? ''));
-$message = trim(htmlspecialchars($_POST["message"] ?? ''));
-
-if (empty($name) || empty($email) || empty($message)) {
-    http_response_code(400);
-    die("All fields are required.");
-}
-
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    http_response_code(400);
-    die("Invalid email address.");
-}
+$name    = htmlspecialchars($_POST["name"]);
+$email   = htmlspecialchars($_POST["email"]);
+$message = htmlspecialchars($_POST["message"]);
 
 $to      = "contact@aqualanddivers.co.uk";
 $subject = "New Contact Form Message";
