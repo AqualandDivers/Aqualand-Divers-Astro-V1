@@ -29,28 +29,28 @@ All prices include the items listed with each course.
 
 <div class="grid grid-cols-[1fr_auto] gap-4 border-t border-[#273fa3]/10 px-4 py-3">
 <p class="m-0">Discover Scuba Diving</p>
-<p class="m-0 font-semibold">£30.00</p>
+<p class="m-0 font-semibold">£35.00</p>
 </div>
 
 
 <div class="grid grid-cols-[1fr_auto] gap-4 border-t border-[#273fa3]/10 px-4 py-3">
 <p class="m-0">Open Water class and pool incl. materials/e-learning and equipment</p>
-<p class="m-0 font-semibold">£330.00</p>
+<p class="m-0 font-semibold">£335.00</p>
 </div>
 
 <div class="grid grid-cols-[1fr_auto] gap-4 border-t border-[#273fa3]/10 bg-slate-50 px-4 py-3">
 <p class="m-0">Open Water Dives incl. equipment and certification</p>
-<p class="m-0 font-semibold">£265.00</p>
+<p class="m-0 font-semibold">£275.00</p>
 </div>
 
 <div class="grid grid-cols-[1fr_auto] gap-4 border-t border-[#273fa3]/10 px-4 py-3">
 <p class="m-0">Advanced Open Water</p>
-<p class="m-0 font-semibold">£330.00</p>
+<p class="m-0 font-semibold">£340.00</p>
 </div>
 
 <div class="grid grid-cols-[1fr_auto] gap-4 border-t border-[#273fa3]/10 bg-slate-50 px-4 py-3">
 <p class="m-0">Rescue Diver (also requires EFR training), pocket mask required</p>
-<p class="m-0 font-semibold">£385.00</p>
+<p class="m-0 font-semibold">£395.00</p>
 </div>
 
 <div class="grid grid-cols-[1fr_auto] gap-4 border-t border-[#273fa3]/10 px-4 py-3">
@@ -65,12 +65,12 @@ All prices include the items listed with each course.
 
 <div class="grid grid-cols-[1fr_auto] gap-4 border-t border-[#273fa3]/10 px-4 py-3">
 <p class="m-0">Wreck Diver (4 dives over 2 Sundays)</p>
-<p class="m-0 font-semibold">£265.00</p>
+<p class="m-0 font-semibold">£275.00</p>
 </div>
 
 <div class="grid grid-cols-[1fr_auto] gap-4 border-t border-[#273fa3]/10 bg-slate-50 px-4 py-3">
 <p class="m-0">Dry Suit Diver incl. suit hire, pool session and 2 open water dives</p>
-<p class="m-0 font-semibold">£220.00</p>
+<p class="m-0 font-semibold">£230.00</p>
 </div>
 
 <div class="grid grid-cols-[1fr_auto] gap-4 border-t border-[#273fa3]/10 px-4 py-3">
@@ -80,12 +80,12 @@ All prices include the items listed with each course.
 
 <div class="grid grid-cols-[1fr_auto] gap-4 border-t border-[#273fa3]/10 bg-slate-50 px-4 py-3">
 <p class="m-0">Deep Diver up to max 40m (4 dives over 2 Sundays)</p>
-<p class="m-0 font-semibold">£265.00</p>
+<p class="m-0 font-semibold">£335.00</p>
 </div>
 
 <div class="grid grid-cols-[1fr_auto] gap-4 border-t border-[#273fa3]/10 px-4 py-3">
 <p class="m-0">Underwater Digital Photography (pool and open water)</p>
-<p class="m-0 font-semibold">£165.00</p>
+<p class="m-0 font-semibold">£175.00</p>
 </div>
 
 <div class="grid grid-cols-[1fr_auto] gap-4 border-t border-[#273fa3]/10 bg-slate-50 px-4 py-3">
@@ -105,17 +105,27 @@ All prices include the items listed with each course.
 
 <div class="grid grid-cols-[1fr_auto] gap-4 border-t border-[#273fa3]/10 px-4 py-3">
 <p class="m-0">Peak Performance Buoyancy</p>
-<p class="m-0 font-semibold">£165.00</p>
+<p class="m-0 font-semibold">£185.00</p>
 </div>
 
 <div class="grid grid-cols-[1fr_auto] gap-4 border-t border-[#273fa3]/10 bg-slate-50 px-4 py-3">
 <p class="m-0">Emergency Oxygen Provider*</p>
-<p class="m-0 font-semibold">£165.00</p>
+<p class="m-0 font-semibold">£175.00</p>
 </div>
 
 <div class="grid grid-cols-[1fr_auto] gap-4 border-t border-[#273fa3]/10 px-4 py-3">
 <p class="m-0">Emergency First Response* (required for Rescue Diver)</p>
-<p class="m-0 font-semibold">£165.00</p>
+<p class="m-0 font-semibold">£175.00</p>
+</div>
+
+<div class="grid grid-cols-[1fr_auto] gap-4 border-t border-[#273fa3]/10 px-4 py-3">
+<p class="m-0">Scuba Review</p>
+<p class="m-0 font-semibold">£35.00</p>
+</div>
+
+<div class="grid grid-cols-[1fr_auto] gap-4 border-t border-[#273fa3]/10 px-4 py-3">
+<p class="m-0">Reactivate (After 6 months of non-diving)</p>
+<p class="m-0 font-semibold">£90.00</p>
 </div>
 </div>
 <p class="mt-4 text-sm opacity-75">* Denotes dry land-based courses</p>
